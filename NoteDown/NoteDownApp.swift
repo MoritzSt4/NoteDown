@@ -9,8 +9,9 @@ import SwiftUI
 
 @main
 struct NoteDownApp: App {
+    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     let persistenceController = PersistenceController.shared
-
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

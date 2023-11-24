@@ -13,9 +13,15 @@
 		8452A4D62B0AB1580092A618 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8452A4D52B0AB1580092A618 /* Preview Assets.xcassets */; };
 		8452A4D82B0AB1580092A618 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452A4D72B0AB1580092A618 /* Persistence.swift */; };
 		8452A4DB2B0AB1580092A618 /* NoteDown.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8452A4D92B0AB1580092A618 /* NoteDown.xcdatamodeld */; };
+		8452A4E42B0AB3AB0092A618 /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452A4E22B0AB3AB0092A618 /* Note+CoreDataClass.swift */; };
+		8452A4E52B0AB3AB0092A618 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452A4E32B0AB3AB0092A618 /* Note+CoreDataProperties.swift */; };
+		8452A4EA2B0AB5470092A618 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452A4E92B0AB5470092A618 /* AppDelegate.swift */; };
+		8452A4EC2B0AB5EE0092A618 /* PopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452A4EB2B0AB5EE0092A618 /* PopoverView.swift */; };
+		8452A4EE2B0AB7060092A618 /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452A4ED2B0AB7060092A618 /* StatusBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8402EB762B0E640E0036DEB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8452A4CB2B0AB1570092A618 /* NoteDown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoteDown.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8452A4CE2B0AB1570092A618 /* NoteDownApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDownApp.swift; sourceTree = "<group>"; };
 		8452A4D02B0AB1570092A618 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -24,6 +30,11 @@
 		8452A4D72B0AB1580092A618 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		8452A4DA2B0AB1580092A618 /* NoteDown.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NoteDown.xcdatamodel; sourceTree = "<group>"; };
 		8452A4DC2B0AB1580092A618 /* NoteDown.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NoteDown.entitlements; sourceTree = "<group>"; };
+		8452A4E22B0AB3AB0092A618 /* Note+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8452A4E32B0AB3AB0092A618 /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8452A4E92B0AB5470092A618 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8452A4EB2B0AB5EE0092A618 /* PopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverView.swift; sourceTree = "<group>"; };
+		8452A4ED2B0AB7060092A618 /* StatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,12 +67,14 @@
 		8452A4CD2B0AB1570092A618 /* NoteDown */ = {
 			isa = PBXGroup;
 			children = (
+				8402EB762B0E640E0036DEB5 /* Info.plist */,
+				8452A4E82B0AB5210092A618 /* Menubar */,
+				8452A4E72B0AB4080092A618 /* CoreData */,
 				8452A4CE2B0AB1570092A618 /* NoteDownApp.swift */,
 				8452A4D02B0AB1570092A618 /* ContentView.swift */,
+				8452A4EB2B0AB5EE0092A618 /* PopoverView.swift */,
 				8452A4D22B0AB1580092A618 /* Assets.xcassets */,
-				8452A4D72B0AB1580092A618 /* Persistence.swift */,
 				8452A4DC2B0AB1580092A618 /* NoteDown.entitlements */,
-				8452A4D92B0AB1580092A618 /* NoteDown.xcdatamodeld */,
 				8452A4D42B0AB1580092A618 /* Preview Content */,
 			);
 			path = NoteDown;
@@ -73,6 +86,26 @@
 				8452A4D52B0AB1580092A618 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8452A4E72B0AB4080092A618 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				8452A4D72B0AB1580092A618 /* Persistence.swift */,
+				8452A4D92B0AB1580092A618 /* NoteDown.xcdatamodeld */,
+				8452A4E22B0AB3AB0092A618 /* Note+CoreDataClass.swift */,
+				8452A4E32B0AB3AB0092A618 /* Note+CoreDataProperties.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		8452A4E82B0AB5210092A618 /* Menubar */ = {
+			isa = PBXGroup;
+			children = (
+				8452A4E92B0AB5470092A618 /* AppDelegate.swift */,
+				8452A4ED2B0AB7060092A618 /* StatusBarController.swift */,
+			);
+			path = Menubar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,8 +180,13 @@
 			files = (
 				8452A4D82B0AB1580092A618 /* Persistence.swift in Sources */,
 				8452A4D12B0AB1570092A618 /* ContentView.swift in Sources */,
+				8452A4EC2B0AB5EE0092A618 /* PopoverView.swift in Sources */,
+				8452A4E42B0AB3AB0092A618 /* Note+CoreDataClass.swift in Sources */,
+				8452A4EE2B0AB7060092A618 /* StatusBarController.swift in Sources */,
 				8452A4CF2B0AB1570092A618 /* NoteDownApp.swift in Sources */,
+				8452A4EA2B0AB5470092A618 /* AppDelegate.swift in Sources */,
 				8452A4DB2B0AB1580092A618 /* NoteDown.xcdatamodeld in Sources */,
+				8452A4E52B0AB3AB0092A618 /* Note+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +325,9 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NoteDown/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -314,6 +355,9 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NoteDown/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
