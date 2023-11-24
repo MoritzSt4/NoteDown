@@ -2,7 +2,7 @@
 //  PopoverView.swift
 //  NoteDown
 //
-//  Created by Moritz on 19.11.23.
+//  Created by Moritz Sta
 //
 
 import SwiftUI
@@ -23,8 +23,6 @@ struct PopoverView: View {
     @State private var clickedNoteContent: String = ""
     @State private var changesCounter: Int = 0
     @State private var showDeleteAlert = false
-    
-    
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -96,7 +94,6 @@ struct PopoverView: View {
                     }
                 }
                 
-                
                 Spacer()
                 
                 HStack() {
@@ -108,29 +105,17 @@ struct PopoverView: View {
                     .buttonStyle(.plain).help("close app")
                     .foregroundStyle(.red)
                     
-                    
-                    Button {
-                        // Settings
-                        
-                    } label: {
-                        Image(systemName: "gearshape")
-                    }
-                    .buttonStyle(.plain).help("settings")
-                    
                     Spacer()
-                    
-                    
+                     
                 }
             }
             
         }
         .padding()
         .frame(width: 400).frame(maxHeight: 600)
-        
-        
     }
     
-
+    
     func generateNotes() -> some View {
         ForEach(texts.reversed(), id: \.wrappedId) { text in
             VStack {
@@ -259,6 +244,7 @@ struct PopoverView: View {
                                 .foregroundColor((uuidCopied == text.id?.uuidString) ? .green : .primary)
                             
                         }.buttonStyle(.plain).help("copy")
+                        
                         if (uuidCopied == text.id?.uuidString) {
                             Text("Copied to Clipboard!")
                                 .font(.system(size: 10))
@@ -290,21 +276,20 @@ struct PopoverView: View {
                     uuidNoteClicked = text.id?.uuidString ?? ""
                     print("clicked")
                 }
-            
         }
     }
-
+    
+    
     func showOnboardingNote() -> some View {
         VStack {
-                   Text("Effortlessly capture your thoughts on the go with your NoteDown app. Seamlessly jot down ideas, to-do lists, and inspirations on your digital notepad, available whenever you need it.\n\nPro tip: Save time! Simply use Shift + Enter (⇧ + ↵) to instantly add notes without the need to reach for the '+' icon.")
-                       .frame(maxWidth: .infinity, alignment: .leading)
-               }
-               .padding(10)
-               .background(
-                   RoundedRectangle(cornerRadius: 10).stroke(Color.secondary, lineWidth: 1)
-               )
-               .padding(.vertical, 5)
-               .foregroundColor(.secondary)
+            Text("Effortlessly capture your thoughts on the go with your NoteDown app. Seamlessly jot down ideas, to-do lists, and inspirations on your digital notepad, available whenever you need it.\n\nPro tip: Save time! Simply use Shift + Enter (⇧ + ↵) to instantly add notes without the need to reach for the '+' icon.")
+                .frame(maxWidth: .infinity, alignment: .leading)
+        }
+        .padding(10)
+        .background(
+            RoundedRectangle(cornerRadius: 10).stroke(Color.secondary, lineWidth: 1))
+        .padding(.vertical, 5)
+        .foregroundColor(.secondary)
     }
     
     private func deleteAlert(completion: @escaping (Bool) -> Void) -> Alert {
@@ -326,6 +311,10 @@ struct PopoverView: View {
         let savePanel = NSSavePanel()
         savePanel.title = "Save Text File"
         savePanel.allowedContentTypes = [UTType.plainText]
+        savePanel.nameFieldStringValue = "Unknown.txt"
+        savePanel.level = NSWindow.Level.modalPanel
+        savePanel.canCreateDirectories = true
+        
         
         savePanel.begin { response in
             switch response {
@@ -340,17 +329,15 @@ struct PopoverView: View {
                     }
                 }
             case .cancel:
-                // canceld
-                completion(false) // Inform the caller that the save was canceled
+                // Inform the caller that the save was canceled
+                completion(false)
             default:
                 break // Handle other cases if needed
             }
         }
     }
+    
 }
-
-
-
 
 
 struct PopoverView_Previews: PreviewProvider {
