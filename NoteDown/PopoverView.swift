@@ -23,6 +23,8 @@ struct PopoverView: View {
     @State private var clickedNoteContent: String = ""
     @State private var changesCounter: Int = 0
     @State private var showDeleteAlert = false
+    @State private var isDarkmodeActive = true
+    @State private var isLightmodeActive: Bool = UserDefaults.standard.bool(forKey: "lightmode")
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -103,16 +105,33 @@ struct PopoverView: View {
                         Image(systemName: "door.right.hand.open")
                     }
                     .buttonStyle(.plain).help("close app")
-                    .foregroundStyle(.red)
                     
                     Spacer()
-                     
+                    
+                    Button(action: {
+                                withAnimation(Animation.spring(response: 0.6, dampingFraction: 0.5 , blendDuration: 0.5)) {
+                                    isLightmodeActive.toggle()
+                                    if isLightmodeActive {
+                                        UserDefaults.standard.set(true, forKey: "lightmode")
+                                    } else {
+                                        UserDefaults.standard.set(false, forKey: "lightmode")
+                                    }
+                                }
+                            }) {
+                                Image(systemName: isLightmodeActive ? "moon.circle.fill" : "sun.max.circle")
+                                    .rotationEffect(.degrees(isLightmodeActive ? 3600 : 0))
+                                    .foregroundColor(.primary)
+                            }
+                            .buttonStyle(.plain)
+                            .help(isLightmodeActive ? "Change to light mode" : "Change to dark mode")
                 }
             }
             
         }
         .padding()
         .frame(width: 400).frame(maxHeight: 600)
+        .preferredColorScheme(isLightmodeActive ? .dark : .light)
+        .environment(\.colorScheme, isLightmodeActive ? .dark : .light)
     }
     
     
@@ -130,11 +149,12 @@ struct PopoverView: View {
                         .background(Color("TextEditorDynamicBackgroundColor").opacity(0.1).cornerRadius(10))
                         .font(.system(size: 13))
                 } else {
+                    let textColor = isLightmodeActive ? Color.primary : Color.black
                     
                     HStack {
                         Text(text.wrappedText)
                             .frame(maxWidth: .infinity, alignment: .leading)
-                            .foregroundColor(.primary)
+                            .foregroundColor(textColor)
                     }.contentShape(Rectangle())
                 }
                 
@@ -184,10 +204,11 @@ struct PopoverView: View {
                             Button {
                                 uuidNoteClicked = ""
                             } label: {
-                                Image(systemName: "x.circle")
+                                Image(systemName: "x.circle.fill")
+                                    .symbolRenderingMode(.palette)
+                                    .foregroundStyle(.black, .red, .red)
                             }
                             .buttonStyle(.plain).help("cancel")
-                            .foregroundColor(.red)
                             
                             // Save changes Button
                             Button {
@@ -210,10 +231,12 @@ struct PopoverView: View {
                                 }
                                 uuidNoteClicked = ""
                             } label: {
-                                Image(systemName: "checkmark.circle")
+                                Image(systemName: "checkmark.circle.fill")
+                                    .symbolRenderingMode(.palette)
+                                    .foregroundStyle(.black, .green, .green)
                             }
                             .buttonStyle(.plain).help("save changes ⌘ + s")
-                            .foregroundColor(.green)
+                          
                             .keyboardShortcut("s", modifiers: [.command])
                             
                             Spacer()
@@ -269,7 +292,7 @@ struct PopoverView: View {
                 
             }.padding(10)
                 .background(
-                    RoundedRectangle(cornerRadius: 10).stroke((uuidNoteClicked == text.id?.uuidString) ? Color.accentColor : Color.primary, lineWidth: 1)
+                    RoundedRectangle(cornerRadius: 10).stroke((uuidNoteClicked == text.id?.uuidString) ? Color.accentColor : Color.primary, lineWidth: 1.3)
                 )
                 .padding(.vertical, 5)
                 .onTapGesture {
