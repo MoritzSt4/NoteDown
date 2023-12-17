@@ -16,7 +16,7 @@ NoteDown offers a unique experience by allowing you to effortlessly capture your
 
 Go to https://notedownapp.github.io/ and follow the istallation guide to download this app.
 
-Reminder: make sure to right click open the app for the first time, because this app is not authorised by apple. Apple charges 100$/year for developers to authorise theire apps, so you can doppleclick to open this app. After open the app with the right click / control click menu, this setting will be saved  and the app works as expected.
+Reminder: make sure to right click open the app for the first time, because this app is not authorised by apple. Apple charges 100$/year for developers to authorise theire apps, so you can doubleclick to open this app. After open the app with the right click / control click menu, this setting will be saved  and the app works as expected.
 
 
 ## Project Information
