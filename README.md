@@ -29,6 +29,10 @@ Reminder: make sure to right click open the app for the first time, because this
 💾 **Save Notes Directly to Your Mac**
   - Seamlessly save your notes directly to your Mac, enhancing accessibility and ensuring your important thoughts can be stored whereever you need them.
 
+
+⌨️ **Use Shortcuts for Enhanced Productivity**
+  - Boost your efficiency by utilizing shortcuts to navigate NoteDown, streamlining your note-taking workflow and enhancing overall productivity.
+
 🐣 **Easter Eggs**
   - Explore the app and keep an eye out for hidden Easter eggs! Maybe you can find some? 
 
