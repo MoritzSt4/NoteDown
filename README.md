@@ -11,7 +11,7 @@ Welcome to NoteDown, the simple and clean notetaking app for your macOS menubar.
 
 ## App Description
 
-NoteDown offers a unique experience by allowing you to effortlessly capture your thoughts on the go with your NoteDown app. Seamlessly jot down ideas, to-do lists, and inspirations on your digital notepad, available whenever you need it.
+NoteDown offers a unique experience by allowing you to effortlessly capture your thoughts on the go with this app. Seamlessly jot down ideas, to-do lists, and inspirations on your digital notepad, available whenever you need it.
 ## Installation
 
 Go to https://notedownapp.github.io/ and follow the istallation guide to download this app.
